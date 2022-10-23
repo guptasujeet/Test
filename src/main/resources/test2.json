@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "Vinay Kumar",
+    "username": "vinayk",
+    "email": "vinayk@abcu.com",
+    "address": {
+      "street": "random1",
+      "suite": "APR",
+      "city": "Mumbai",
+      "zipcode": "192008-13874",
+      "geo": {
+        "lat": "-17.3159",
+        "lng": "91.1496"
+      }
+    },
+    "website": "seuinfra.org",
+    "company": {
+      "name": "sec infra",
+      "basename": "seu infra tech"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Anandita Basu",
+    "username": "PrernaB",
+    "email": "Anandita.b@abc1f.cpm",
+    "address": {
+      "street": "Hawroh Bridge",
+      "suite": "ATY",
+      "city": "Kolkata",
+      "zipcode": "700001",
+      "geo": {
+        "lat": "-67.3159",
+        "lng": "91.8006"
+      }
+    },
+    "website": "techInfar.org",
+    "company": {
+      "name": "tech infar world",
+      "basename": "seu infra tech"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Charvi Malhotra",
+    "username": "CharviM",
+    "email": "Charvim@mail.net",
+    "address": {
+      "street": "whitehouse Extension",
+      "suite": "A782",
+      "city": "Bengaluru",
+      "zipcode": "560001",
+      "geo": {
+        "lat": "-68.6102",
+        "lng": "-47.0653"
+      }
+    },
+    "website": "Infesystem.info",
+    "company": {
+      "name": "infeystems",
+      "basename": "Information E stsyem"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Patricia Wilson",
+    "username": "WilsonP",
+    "email": "Wilsonp@mymail.org",
+    "address": {
+      "street": "Kalangut",
+      "suite": "Apt 6",
+      "city": "Panjim",
+      "zipcode": "403110",
+      "geo": {
+        "lat": "29.4572",
+        "lng": "-164.2990"
+      }
+    },
+    "website": "giant.Tech.biz",
+    "company": {
+      "name": "robert-techgiant",
+      "basename": "transition cutting-edge web services provider"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chetan Chauhan ",
+    "username": "ChauhanChetan",
+    "email": "chetanc@mailme.in",
+    "address": {
+      "street": "Willow Walks",
+      "suite": "1351",
+      "city": "Hyderabad",
+      "zipcode": "500001",
+      "geo": {
+        "lat": "-31.8129",
+        "lng": "62.5342"
+      }
+    },
+    "website": "sanganak.info",
+    "company": {
+      "name": "Sanganak",
+      "basename": "end-to-end solution provider"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Pragya Mathur",
+    "username": "mathurpragya",
+    "email": "pragya.mathur@mail.in",
+    "address": {
+      "street": "Rosewind Crossing",
+      "suite": "A-50",
+      "city": "Delhi",
+      "zipcode": "100001",
+      "geo": {
+        "lat": "-71.4197",
+        "lng": "71.7478"
+      }
+    },
+    "website": "hola.in",
+    "company": {
+      "name": "Hola Technocrafts",
+      "basename": "e-enable innovative applications"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Krish Ahuja",
+    "username": "ahujakrish",
+    "email": "ahujakrish@mails.in",
+    "address": {
+      "street": "Havmore Extension",
+      "suite": "A3221",
+      "city": "Bengalura",
+      "zipcode": "560058",
+      "geo": {
+        "lat": "24.8918",
+        "lng": "21.8984"
+      }
+    },
+    "website": "tellybelly.in",
+    "company": {
+      "name": "Telly Belly",
+      "basename": "generate application support solutions"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nilofar Anam",
+    "username": "anamnilofar",
+    "email": "nilofaranam.d@maily.me",
+    "address": {
+      "street": "fountains lane",
+      "suite": "B902",
+      "city": "pune",
+      "zipcode": "400001",
+      "geo": {
+        "lat": "-14.3990",
+        "lng": "-120.7677"
+      }
+    },
+    "website": "techoba.com",
+    "company": {
+      "name": "Tech Happy Group",
+      "basename": "e-support to middle retailers"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Garima Gupta",
+    "username": "Garimag",
+    "email": "gupta.garima22@myemails.io",
+    "address": {
+      "street": "Little Park",
+      "suite": "B68",
+      "city": "Surat",
+      "zipcode": "764920",
+      "geo": {
+        "lat": "24.6463",
+        "lng": "-168.8889"
+      }
+    },
+    "website": "contech.com",
+    "company": {
+      "name": "Configs Techs",
+      "basename": "real-time technologies support"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Dharma Dhar",
+    "username": "Dharmadhar55",
+    "email": "dharmadhar55@olexa.in",
+    "address": {
+      "street": "Anam Street",
+      "suite": "198/23",
+      "city": "Surat",
+      "zipcode": "314280",
+      "geo": {
+        "lat": "-38.2386",
+        "lng": "57.2232"
+      }
+    },
+    "website": "ampitech.net",
+    "company": {
+      "name": "Ampitech Solutions Ltd",
+      "basename": "target end-to-end startup support"
+    }
+  }
+]
