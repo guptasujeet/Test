@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class BalanceArray {
 
 
-    public int solveOptimized(ArrayList<Integer> A) {
+    private int solveOptimized(ArrayList<Integer> A) {
 
         int size = A.size();
 
@@ -48,9 +48,10 @@ public class BalanceArray {
     }
 
 
-    public int solveN2(ArrayList<Integer> A) {
+    private int solveN2(ArrayList<Integer> A) {
         int size = A.size();
         int count = 0;
+        //in the first loop assuming that we are removing that element
         for (int i = 0; i < size; i++) {
             long evenSum = 0;
             long oddSum = 0;
@@ -62,6 +63,9 @@ public class BalanceArray {
                         oddSum += A.get(j);
                     }
                 } else if (j > i) {
+                    //if based on assumption element is remove then the next element in the array
+                    //will be shifted by 1 , even index will become odd and odd will become even
+                    //hence adding differently here
                     if (j % 2 == 0) {
                         oddSum += A.get(j);
                     } else {
