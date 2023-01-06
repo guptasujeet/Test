@@ -22,7 +22,7 @@ public class MoveZerosOrMoveRight {
             if (data == 0) {
                 right++;
             } else {
-                //other wise swap , left with right and increment both by 1
+                //otherwise swap , left with right and increment both by 1
                 //think of it like moving all non zeros to left, instead of moving all zeros to right
                 int temp = A.get(left);
                 A.set(left, data);
@@ -49,7 +49,7 @@ public class MoveZerosOrMoveRight {
             if (data == ' ') {
                 right++;
             } else {
-                //other wise swap , left with right and increment both by 1
+                //otherwise swap , left with right and increment both by 1
                 //think of it like moving all non zeros to left, instead of moving all zeros to right
                 char temp = A[left];
                 A[left] = data;
@@ -61,6 +61,23 @@ public class MoveZerosOrMoveRight {
 
     }
 
+
+    //for practice
+    public void solveAgain(char[] data) {
+        int i = 0, j = 0;
+        while (j < data.length) {
+            char ch = data[j];
+            if (ch == ' ') {
+                j++;
+            } else {
+                char temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
+                i++;
+                j++;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         MoveZerosOrMoveRight moveZerosOrMoveRight = new MoveZerosOrMoveRight();
@@ -74,8 +91,11 @@ public class MoveZerosOrMoveRight {
 
         char[] arr = text.toCharArray();
         moveZerosOrMoveRight.solve(arr);
-
         System.out.println(new String(arr));  //Thisisabeautifulworld!
+
+        char[] arr2 = text.toCharArray();
+        moveZerosOrMoveRight.solveAgain(arr2);
+        System.out.println(new String(arr2));  //Thisisabeautifulworld!
 
     }
 

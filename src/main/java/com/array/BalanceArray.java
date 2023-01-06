@@ -12,7 +12,7 @@ public class BalanceArray {
 
         int size = A.size();
 
-        //naming it right because we will be moving subtracting it so it will contain element sum till right
+        //naming it right because we will be moving subtracting it, so it will contain element sum till right
         //in the 2nd loop
         int oddRightSum = 0, evenRightSum = 0;
         for (int i = 0; i < size; i++) {
@@ -102,6 +102,7 @@ public class BalanceArray {
         System.out.println(balanceArray.solveOptimized(integers2)); //2
         System.out.println(balanceArray.solveOptimized(integers3)); //0
         System.out.println(balanceArray.solveOptimized(integers4)); //0
+
 
     }
 

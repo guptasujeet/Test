@@ -18,7 +18,8 @@ public class StairNumWaysToClimb {
 
     private static int getNumberOfWaysToClimbUp(int numberOfSteps, ArrayList allowedSteps) {
         if (numberOfSteps == 0 || numberOfSteps == 1) {
-            //climbing from step 0 to step 0 taking 0 taking as 1
+            //climbing from step 0 to step 0
+            // taking this 0 as well 1, taking as 1
             return 1;
         }
 

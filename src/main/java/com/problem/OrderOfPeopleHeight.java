@@ -5,9 +5,9 @@ package com.problem;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
+//NOT WORKING
 public class OrderOfPeopleHeight {
 
     public ArrayList<Integer> order(ArrayList<Integer> A, ArrayList<Integer> B) {
@@ -19,8 +19,7 @@ public class OrderOfPeopleHeight {
             ans.add(Integer.MAX_VALUE);
         }
 
-
-        Collections.sort(list, Comparator.comparing(Pair::getHeight).thenComparing(Pair::getInfront));
+        list.sort(Comparator.comparing(Pair::getHeight).thenComparing(Pair::getInfront));
 
         for (int i = 0; i < A.size(); i++) {
             int pos = 0;

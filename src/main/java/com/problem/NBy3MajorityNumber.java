@@ -8,41 +8,68 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+//https://leetcode.com/problems/majority-element-ii/
+
+/**
+ * Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+ * <p>
+ * Example 1:
+ * Input: nums = [3,2,3]
+ * Output: [3]
+ * <p>
+ * Example 2:
+ * Input: nums = [1]
+ * Output: [1]
+ * <p>
+ * Example 3:
+ * Input: nums = [1,2]
+ * Output: [1,2]
+ */
+
+
+//use Moor's Majority element algo
+//https://www.youtube.com/watch?v=n5QY3x_GNDg
 public class NBy3MajorityNumber {
     // DO NOT MODIFY THE LIST
     public int repeatedNumber(final List<Integer> a) {
         Map<Integer, Integer> counter = new HashMap<>(2);
         int size = a.size();
-        for (int i = 0; i < size; i++) {
-            int num = a.get(i);
+        for (int num : a) {
             if (counter.containsKey(num)) {
                 counter.compute(num, (k, v) -> v + 1);
             } else {
+                //N/3 (3-1) i.e 2 elements
+                //if the size is 2 then
                 if (counter.size() == 2) {
                     Iterator<Map.Entry<Integer, Integer>> iterator = counter.entrySet().iterator();
                     while (iterator.hasNext()) {
                         Map.Entry<Integer, Integer> entry = iterator.next();
                         Integer key = entry.getKey();
                         Integer value = entry.getValue();
+                        //if this is the only element count i.e. 1 remove it
                         if (value == 1) {
                             iterator.remove();
                         } else {
+                            //else decrement it
                             counter.put(key, value - 1);
                         }
                     }
                 } else {
+                    //else put in the list
                     counter.put(num, 1);
                 }
             }
         }
+        //find candidate element
         if (!counter.isEmpty()) {
             for (int candidateNum : counter.keySet()) {
                 int actualCountOfCandidateNum = 0;
-                for (int i = 0; i < size; i++) {
-                    if (a.get(i) == candidateNum) {
+                for (Integer num : a) {
+                    if (num == candidateNum) {
                         actualCountOfCandidateNum++;
                     }
                 }
+                //verify if the candidate element meets criteria
                 if (actualCountOfCandidateNum > size / 3) {
                     return candidateNum;
                 }
@@ -56,7 +83,7 @@ public class NBy3MajorityNumber {
 
         NBy3MajorityNumber majorityNumber = new NBy3MajorityNumber();
 
-        System.out.println(majorityNumber.repeatedNumber(Lists.newArrayList(1000441, 1000441, 1000994)));
+        System.out.println(majorityNumber.repeatedNumber(Lists.newArrayList(441, 441, 994))); //441
 
     }
 }

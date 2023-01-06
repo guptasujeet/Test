@@ -6,14 +6,13 @@ public class FirstNonRepeatingCharacter {
 
     public static void main(String[] args) {
 
-        String input = "abgbbbacccdddddefffffg";
-        //String input = "abgbbbacccdddddeffefffg";
+        String input1 = "abgbbbacccdddddefffffg";
+        String input2 = "abgbbbacccdddddeffefffg";
 
+        System.out.println("Output is -> " + getFirstNonRepeatingChar(input1)); // e
+        System.out.println("Output is -> " + getFirstNonRepeatingChar(input2)); // a
 
-        char output = getFirstNonRepeatingChar(input);
-        System.out.println("Output is -> " + output);
-
-        System.out.println("Output is -> " + getFirstNonRepeatingChar("aabc"));
+        System.out.println("Output is -> " + getFirstNonRepeatingChar("aabc")); //b
 
     }
 

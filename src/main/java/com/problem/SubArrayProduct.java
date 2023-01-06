@@ -3,16 +3,17 @@ package com.problem;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
+//VERY OLD , check if correct or not
+//update it with correct code if not
 public class SubArrayProduct {
 
     public static void main(String[] args) {
-        //int[] data = {1, 2, 3};
-        int[] data = {1, 2, 3, 4};
-        int totalNum = subArrayProductLessThanK(data, 6);
-        System.out.println(totalNum);
+        int[] data1 = {1, 2, 3};
+        int[] data2 = {1, 2, 3, 4};
+        System.out.println(subArrayProductLessThanK(data1, 6));
+        System.out.println(subArrayProductLessThanK(data2, 6));
     }
 
 
@@ -23,23 +24,13 @@ public class SubArrayProduct {
         for (int i = 0; i < data.length; i++) {
             for (int j = i; j < data.length; j++) {
                 int len = j - i + 1;
-                int temp[] = new int[len];
+                int[] temp = new int[len];
                 System.arraycopy(data, i, temp, 0, len);
                 subArrays.add(new DataContainer(temp));
             }
         }
 
-        Iterator<DataContainer> iterator = subArrays.iterator();
-
-        while (iterator.hasNext()) {
-            DataContainer subData = iterator.next();
-            if (subData.getDataProduct() >= k) {
-                iterator.remove();
-            }
-        }
-
-        //java 8
-        //subArrays.removeIf(subData -> subData.getDataProduct() >= k);
+        subArrays.removeIf(subData -> subData.getDataProduct() >= k);
 
         return subArrays.size();
     }

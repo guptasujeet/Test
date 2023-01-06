@@ -5,11 +5,11 @@ public class ShortestPalindrome {
 
 
     public static void main(String[] args) {
-        String input = "abcda";
-        //String input = "abab";
-        String output = shortestPalindrome(input);
+        String input1 = "abcda";
+        String input2 = "abab";
 
-        System.out.println(output);
+        System.out.println(shortestPalindrome(input1)); //adcbabcda
+        System.out.println(shortestPalindrome(input2)); //babab
     }
 
 

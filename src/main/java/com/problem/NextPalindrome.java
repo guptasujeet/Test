@@ -1,6 +1,7 @@
 package com.problem;
 
 
+//https://www.interviewbit.com/problems/next-smallest-palindrome/
 public class NextPalindrome {
     public String solve(String str) {
 
@@ -19,7 +20,7 @@ public class NextPalindrome {
         if (length % 2 == 0) {
             int mid = length / 2 - 1;
             StringBuilder strBuilder = new StringBuilder(str);
-            char nextIncChar = String.valueOf(Integer.valueOf("" + str.charAt(mid)) + 1).charAt(0);
+            char nextIncChar = String.valueOf(Integer.parseInt("" + str.charAt(mid)) + 1).charAt(0);
             strBuilder.setCharAt(mid, nextIncChar);
             for (int i = mid, j = mid + 1; i >= 0 && j < length; i--, j++) {
                 strBuilder.setCharAt(j, strBuilder.charAt(i));
@@ -29,7 +30,7 @@ public class NextPalindrome {
             //odd length
             int mid = length / 2;
             StringBuilder strBuilder = new StringBuilder(str);
-            char nextIncChar = String.valueOf(Integer.valueOf("" + str.charAt(mid)) + 1).charAt(0);
+            char nextIncChar = String.valueOf(Integer.parseInt("" + str.charAt(mid)) + 1).charAt(0);
             strBuilder.setCharAt(mid, nextIncChar);
             for (int i = mid - 1, j = mid + 1; i >= 0 && j < length; i--, j++) {
                 strBuilder.setCharAt(j, strBuilder.charAt(i));
@@ -42,7 +43,9 @@ public class NextPalindrome {
     public static void main(String[] args) {
         NextPalindrome nextPalindrome = new NextPalindrome();
 
-        System.out.println(nextPalindrome.solve("74"));
+        System.out.println(nextPalindrome.solve("74")); //88
+        System.out.println(nextPalindrome.solve("110")); //12s1
+        System.out.println(nextPalindrome.solve("111")); //121
     }
 
 

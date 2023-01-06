@@ -24,9 +24,13 @@ public class KthSmallestLargestElement {
     private static PriorityQueue<Integer> processDataInMaxHeap(int[] data, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
         for (int i = 0; i < data.length; i++) {
+            //for all elements upto k put them in queue
             if (i < k) {
                 priorityQueue.add(data[i]);
             } else {
+                // for more elements check if data in queue top is greater than
+                // current then remove that and add current
+                // else do nothing
                 if (priorityQueue.peek() > data[i]) {
                     priorityQueue.poll();
                     priorityQueue.add(data[i]);
@@ -39,7 +43,8 @@ public class KthSmallestLargestElement {
 
     public static void main(String[] args) {
         int[] data = {10, 6, 20, 4, 8, 15, 25, 7, 12};
-        System.out.println(getKthLastElement(data, 4));
+        System.out.println(getKthLastElement(data, 4)); //8
+        System.out.println(getKthLastElement(data, 6)); //12
         System.out.println(Arrays.toString(getKLastElements(data, 4)));
     }
 

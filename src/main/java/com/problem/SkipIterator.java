@@ -22,6 +22,7 @@ public class SkipIterator implements Iterator<Integer> {
     @Override
     public Integer next() {
         if (!hasNext()) throw new RuntimeException("empty");
+        //make local copy of next advance to next and return existing local copy
         Integer el = nextEl;
         advance();
         return el;
@@ -29,14 +30,17 @@ public class SkipIterator implements Iterator<Integer> {
 
     public void skip(int num) {
         if (!hasNext()) throw new RuntimeException("empty");
+        //if the element to skip is the next element then advance to next element
         if (nextEl == num) {
             advance();
         } else {
+            //else add the count
             count.put(num, count.getOrDefault(num, 0) + 1);
         }
     }
 
     private void advance() {
+        //set next element to null, so that it can be used in next() method check
         nextEl = null;
         while (nextEl == null && it.hasNext()) {
             Integer el = it.next();

@@ -106,8 +106,8 @@ public class RatInAMaze {
         R(0, 1),
         U(-1, 0);
 
-        int iInc;
-        int jInc;
+        final int iInc;
+        final int jInc;
 
         Direction(int i, int j) {
             iInc = i;
