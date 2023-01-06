@@ -18,22 +18,20 @@ public class ConditionPrintControlledThread123 {
     public static void main(String[] args) throws InterruptedException {
         ConditionPrintControlledThread123 demo = new ConditionPrintControlledThread123();
         Thread oneModPrinter = new Thread(demo::printOneMod);
-        oneModPrinter.setName("One Mod Printer ");
+        oneModPrinter.setName("Thread A ");
 
         Thread twoModPrinter = new Thread(demo::printTwoMod);
-        twoModPrinter.setName("Two Mod Printer ");
+        twoModPrinter.setName("Thread B ");
 
         Thread threeModPrinter = new Thread(demo::printThreeMod);
-        threeModPrinter.setName("Three Mod Printer ");
+        threeModPrinter.setName("Thread C ");
+
+        threeModPrinter.start();
+        twoModPrinter.start();
+        oneModPrinter.start();
 
         CountDownLatch latch = new CountDownLatch(1);
-
-        oneModPrinter.start();
-        twoModPrinter.start();
-        threeModPrinter.start();
-
         latch.await(); //just wait
-
 
     }
 

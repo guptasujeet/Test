@@ -10,12 +10,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ProducerConsumerCondition {
 
-    private Lock lock = new ReentrantLock(true);
-    private Condition isEmpty = lock.newCondition();
-    private Condition isFull = lock.newCondition();
-    private List<Integer> buffer = new ArrayList<>();
-    private final int MAX_ELEMENT = 10;
-    private Random random = new Random();
+    private final Lock lock = new ReentrantLock(true);
+    private final Condition isEmpty = lock.newCondition();
+    private final Condition isFull = lock.newCondition();
+    private final List<Integer> buffer = new ArrayList<>();
+    private final Random random = new Random();
 
 
     public static void main(String[] args) {
@@ -39,6 +38,7 @@ public class ProducerConsumerCondition {
 
 
     public void produce() {
+        int MAX_ELEMENT = 10;
         while (true) {
             try {
                 System.out.println("Producer waiting for lock");

@@ -17,7 +17,7 @@ public class VolatileThreadStopTest {
         thread1.start();
         thread2.start();
 
-        //marking current thread sleep for sometime
+        //making current thread sleep for sometimes
         /*try {
             Thread.sleep(SECONDS.toMillis(1));
         } catch (InterruptedException e) {
