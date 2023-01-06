@@ -6,23 +6,23 @@ package com.design.pattern.singleton;
 public class Shop {
 
     public static void main(String[] args) {
-        System.out.println(Catalog.areYouReady());  //testing eager initialization
+        System.out.println(CatalogDoubleCheckLocking.areYouReady());  //testing eager initialization
         handleCustomer();
     }
 
     private static void handleCustomer() {
-        Catalog catalog = Catalog.getInstance();
+        CatalogDoubleCheckLocking catalogDoubleCheckLocking = CatalogDoubleCheckLocking.getInstance();
 
-        System.out.println("Cust 1 here is your catalog : " + catalog.getCatalogData());
+        System.out.println("Customer 1 here is your catalog : " + catalogDoubleCheckLocking.getCatalogData());
 
 
-        Catalog catalog2 = Catalog.getInstance();
+        CatalogDoubleCheckLocking catalogDoubleCheckLocking2 = CatalogDoubleCheckLocking.getInstance();
 
-        System.out.println("Cust 2 here is your catalog : " + catalog2.getCatalogData());
+        System.out.println("Customer 2 here is your catalog : " + catalogDoubleCheckLocking2.getCatalogData());
 
-        Catalog catalog3 = Catalog.getInstance();
+        CatalogDoubleCheckLocking catalogDoubleCheckLocking3 = CatalogDoubleCheckLocking.getInstance();
 
-        System.out.println("Cust 3 here is your catalog : " + catalog3.getCatalogData());
+        System.out.println("Customer 3 here is your catalog : " + catalogDoubleCheckLocking3.getCatalogData());
     }
 
 }

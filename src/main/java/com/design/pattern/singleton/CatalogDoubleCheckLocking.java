@@ -6,15 +6,14 @@ import java.util.Map;
 /**
  * Created by Sujeet on 16/12/18.
  */
-public class Catalog {
+public class CatalogDoubleCheckLocking {
 
     //private static Catalog catalog = new Catalog(); //eager initialization
-    private static Catalog catalog = null; // lazy initialization
-
+    private static CatalogDoubleCheckLocking catalogDoubleCheckLocking = null; // lazy initialization
 
     private Map<String, String> catalogData;
 
-    private Catalog() {
+    private CatalogDoubleCheckLocking() {
         System.out.println("Initializing Catalog");
         try {
             Thread.sleep(1000);
@@ -25,15 +24,15 @@ public class Catalog {
 
     }
 
-    public static Catalog getInstance() {
-        if (catalog == null) { //single threaded //need synchronization for multi-threaded
-            synchronized (Catalog.class) {
-                if (catalog == null) { // double check locking
-                    catalog = new Catalog();
+    public static CatalogDoubleCheckLocking getInstance() {
+        if (catalogDoubleCheckLocking == null) { //single threaded //need synchronization for multi-threaded
+            synchronized (CatalogDoubleCheckLocking.class) {
+                if (catalogDoubleCheckLocking == null) { // double check locking
+                    catalogDoubleCheckLocking = new CatalogDoubleCheckLocking();
                 }
             }
         }
-        return catalog;
+        return catalogDoubleCheckLocking;
     }
 
 

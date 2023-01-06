@@ -6,9 +6,10 @@ import java.util.Arrays;
 public class ZigZagArray {
 
     public static void main(String[] args) {
-        int[] data = {1, 3, 6, 9, -3}; //output // 9, -3, 6, 1, 3
-        //int[] data = {-44, 77, 54, 19, -3, 99, 22}; //output // 99  -44  77  -3  54  19  22
-        printZigZag(data);
+        int[] data1 = {1, 3, 6, 9, -3}; //output // 9, -3, 6, 1, 3
+        int[] data2 = {-44, 77, 54, 19, -3, 99, 22}; //output // 99  -44  77  -3  54  19  22
+        printZigZag(data1);
+        printZigZag(data2);
     }
 
 

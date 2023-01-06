@@ -5,12 +5,10 @@ import java.util.Map;
 
 public class Solution {
 
-    private final int capacity;
-    private Map<Integer, Integer> cache;
+    private final Map<Integer, Integer> cache;
 
     public Solution(int capacity) {
-        this.capacity = capacity;
-        this.cache = new LinkedHashMap<Integer, Integer>() {
+        this.cache = new LinkedHashMap<>() {
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
                 return this.size() == capacity + 1;

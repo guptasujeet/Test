@@ -20,7 +20,7 @@ public class HelloWorldClass {
         worldClass.getValue();
         System.out.println(worldClass.getPrivateValue());
 
-        worldClass.consume((e) -> System.out.println(e));
+        worldClass.consume(System.out::println);
     }
 
 

@@ -39,7 +39,7 @@ public class AtomicLongAdderPerfTest {
 
 
 class LongAdderContainer {
-    private LongAdder counter = new LongAdder();
+    private final LongAdder counter = new LongAdder();
 
 
     public Long getCounts() {
@@ -55,7 +55,7 @@ class LongAdderContainer {
 
 class AtomicLongContainer {
 
-    private AtomicLong counter = new AtomicLong();
+    private final AtomicLong counter = new AtomicLong();
 
 
     public Long getCounts() {
