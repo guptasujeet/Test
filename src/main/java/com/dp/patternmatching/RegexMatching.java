@@ -1,4 +1,4 @@
-package com.dynamicprogramming;
+package com.dp.patternmatching;
 
 public class RegexMatching {
 

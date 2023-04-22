@@ -3,7 +3,7 @@ package com.design.pattern.decorator;
 
 public abstract class ToppingDecorator implements Pizza {
 
-    private Pizza pizza;
+    private final Pizza pizza;
 
     protected ToppingDecorator(Pizza pizza) {
         this.pizza = pizza;
