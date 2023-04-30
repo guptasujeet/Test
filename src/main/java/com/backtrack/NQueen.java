@@ -1,31 +1,30 @@
 package com.backtrack;
 
+import com.google.common.collect.Lists;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+// https://www.codingninjas.com/codestudio/problems/the-n-queens-puzzle_981286
+// https://www.youtube.com/watch?v=9wEwqNdOAVQ
 public class NQueen {
 
     public static ArrayList<ArrayList<Integer>> nQueens(int n) {
-        // Write Your Code Here
         ArrayList<ArrayList<Integer>> answer = new ArrayList<>();
         Board board = new Board(n);
-
         findQueensPositions(0, n, board, answer);
-
         return answer;
     }
 
 
-    private static void findQueensPositions(int col, int n,
-                                            Board board,
+    private static void findQueensPositions(int col, int n, Board board,
                                             ArrayList<ArrayList<Integer>> answer) {
-
         if (col == n) {
             copyBoardDataToAnswer(board, answer);
             return;
         }
-
 
         for (int row = 0; row < n; row++) {
             if (board.isSafe(row, col, board)) {
@@ -50,7 +49,7 @@ public class NQueen {
     static class Board {
 
         ArrayList<ArrayList<Integer>> board;
-        private int n;
+        private final int n;
         Map<Integer, Boolean> rowPlacement;
         Map<Integer, Boolean> diagonalDownPlacement;
         Map<Integer, Boolean> diagonalUpPlacement;
@@ -105,9 +104,15 @@ public class NQueen {
 
 
     public static void main(String[] args) {
+        int n = 4;
+        ArrayList<ArrayList<Integer>> placements = nQueens(n);
+        //2 ways to place hence size of array list is 2 for n =4
 
-        ArrayList<ArrayList<Integer>> placement = nQueens(4);
-        System.out.println(placement);
+        for (ArrayList<Integer> placement : placements) {
+            List<List<Integer>> boardPlacement = Lists.partition(placement, n);
+            boardPlacement.forEach(System.out::println);
+            System.out.println("----------------");
+        }
 
     }
 
