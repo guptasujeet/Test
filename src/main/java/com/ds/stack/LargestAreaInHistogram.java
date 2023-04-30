@@ -33,7 +33,6 @@ public class LargestAreaInHistogram {
 
 
     private int[] nextSmallerElementIndex(int[] arr) {
-        // Write your code here.
         int[] ansList = new int[arr.length];
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);

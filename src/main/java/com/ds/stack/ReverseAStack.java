@@ -39,8 +39,8 @@ public class ReverseAStack {
         System.out.println(stack);
 
         ReverseAStack reverse = new ReverseAStack();
-        //reverse.reverse(stack);
-        reverse.insertAtBottom(stack, 1);
+        reverse.reverse(stack);
+        //reverse.insertAtBottom(stack, 1);
         System.out.println(stack);
 
         reverse.reverse(stack);
