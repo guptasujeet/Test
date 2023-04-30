@@ -3,20 +3,16 @@ package com.backtrack;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://www.youtube.com/watch?v=wjqSZy4pMT4
+// https://www.codingninjas.com/codestudio/problems/rat-in-a-maze_1215030
 public class RatInAMaze {
 
-    public static ArrayList<String> findSum(int[][] arr, int n) {
-        // Write your code here.
-
-        if (n == 0) {
+    public static ArrayList<String> findPath(int[][] arr, int n) {
+        //if size is 0 or 1 , can't go anywhere, it is on the same box
+        if (n == 0 || n == 1) {
             return new ArrayList<>();
         }
 
-        if (n == 1) {
-            ArrayList<String> ans = new ArrayList<>();
-            ans.add("D");
-            return ans;
-        }
 
         ArrayList<String> paths = new ArrayList<>();
         boolean[][] visited = new boolean[n][n];
@@ -59,6 +55,7 @@ public class RatInAMaze {
             visited[i][j] = true;
             nextDirection = direction;
         }
+
 
         Move move;
         if (nextDirection != null) {
@@ -114,10 +111,10 @@ public class RatInAMaze {
             jInc = j;
         }
 
-
     }
 
     public static void main(String[] args) {
+        //1 meaning can to that block , 0 meaning it can not
         int[][] arr = new int[][]{
                 {1, 0, 0, 0},
                 {1, 1, 0, 0},
@@ -125,7 +122,7 @@ public class RatInAMaze {
                 {0, 1, 1, 1}
         };
 
-        ArrayList<String> path = findSum(arr, arr.length);
+        ArrayList<String> path = findPath(arr, arr.length);
 
         System.out.println(path);
         //DDRDRR

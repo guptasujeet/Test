@@ -21,13 +21,14 @@ public class NQueen {
 
     private static void findQueensPositions(int col, int n, Board board,
                                             ArrayList<ArrayList<Integer>> answer) {
+        //if queen is placed into the last column then that is one of the answer
         if (col == n) {
             copyBoardDataToAnswer(board, answer);
             return;
         }
 
         for (int row = 0; row < n; row++) {
-            if (board.isSafe(row, col, board)) {
+            if (board.isSafe(row, col)) {
                 board.placeQueen(row, col);
                 findQueensPositions(col + 1, n, board, answer);
                 //backtrack
@@ -76,7 +77,7 @@ public class NQueen {
             diagonalUpPlacement.remove((n - 1) + (col - row));
         }
 
-        public boolean isSafe(int row, int col, Board board) {
+        public boolean isSafe(int row, int col) {
             if (rowPlacement.getOrDefault(row, false)) {
                 return false;
             }
@@ -113,7 +114,6 @@ public class NQueen {
             boardPlacement.forEach(System.out::println);
             System.out.println("----------------");
         }
-
     }
 
 }
