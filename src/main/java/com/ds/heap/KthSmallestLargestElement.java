@@ -1,4 +1,4 @@
-package com.problem;
+package com.ds.heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -6,13 +6,13 @@ import java.util.PriorityQueue;
 public class KthSmallestLargestElement {
 
 
-    private static int getKthLastElement(int[] data, int k) {
+    private static int getKthLargestElement(int[] data, int k) {
         PriorityQueue<Integer> priorityQueue = processDataInMaxHeap(data, k);
 
         return priorityQueue.peek();
     }
 
-    private static Integer[] getKLastElements(int[] data, int k) {
+    private static Integer[] getKSmallestElements(int[] data, int k) {
         //zero indexing
 
         PriorityQueue<Integer> priorityQueue = processDataInMaxHeap(data, k);
@@ -24,7 +24,7 @@ public class KthSmallestLargestElement {
     private static PriorityQueue<Integer> processDataInMaxHeap(int[] data, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
         for (int i = 0; i < data.length; i++) {
-            //for all elements upto k put them in queue
+            //for all elements till k put them in queue
             if (i < k) {
                 priorityQueue.add(data[i]);
             } else {
@@ -43,9 +43,11 @@ public class KthSmallestLargestElement {
 
     public static void main(String[] args) {
         int[] data = {10, 6, 20, 4, 8, 15, 25, 7, 12};
-        System.out.println(getKthLastElement(data, 4)); //8
-        System.out.println(getKthLastElement(data, 6)); //12
-        System.out.println(Arrays.toString(getKLastElements(data, 4)));
+        System.out.println(getKthLargestElement(data, 4)); //8
+        System.out.println(Arrays.toString(getKSmallestElements(data, 4))); //[8, 7, 4, 6]
+
+        System.out.println(getKthLargestElement(data, 6)); //12
+        System.out.println(Arrays.toString(getKSmallestElements(data, 6))); //12, 8, 10, 4, 6, 7]
     }
 
 
