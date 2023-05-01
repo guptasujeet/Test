@@ -32,9 +32,7 @@ public class MergeKSortedLinkedList {
                 minHeap.add(newNode.getNextNode());
             }
         }
-
         return root;
-
     }
 
 
@@ -42,9 +40,7 @@ public class MergeKSortedLinkedList {
         Node[] sortedLinkedList = getSortedLinkedList();
         Node root = mergeKSortedLinkedList(sortedLinkedList, sortedLinkedList.length);
         System.out.println(new SinglyLinkList(root));
-
     }
-
 
     private static Node[] getSortedLinkedList() {
 

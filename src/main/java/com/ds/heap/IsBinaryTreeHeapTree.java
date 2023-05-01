@@ -6,7 +6,6 @@ public class IsBinaryTreeHeapTree {
 
     public static String isBinaryHeap(BinaryTreeNode root) {
         int nodeCount = nodeCount(root);
-        // Write your code here.
         if (isCBT(root, 0, nodeCount) && isHeap(root)) {
             return "True";
         } else {
@@ -18,23 +17,17 @@ public class IsBinaryTreeHeapTree {
         if (root == null) {
             return 0;
         }
-
         return 1 + nodeCount(root.left) + nodeCount(root.right);
     }
 
-
     private static boolean isHeap(BinaryTreeNode node) {
-
         //added extra below check
         if (node == null) {
             return true;
         }
-
         if (node.left == null && node.right == null) {
             return true;
         }
-
-
         if (node.right == null) {
             return node.data >= node.left.data;
         } else {
@@ -49,18 +42,15 @@ public class IsBinaryTreeHeapTree {
         if (node == null) {
             return true;
         }
-
         if (index >= nodeCount) {
             return false;
         }
-
         return isCBT(node.left, 2 * index + 1, nodeCount) && isCBT(node.right, 2 * index + 2, nodeCount);
     }
 
 
     public static void main(String[] args) {
         BinaryTreeNode root = getSampleTree();
-
         System.out.println("Is Heap -> " + isBinaryHeap(root));
     }
 

@@ -6,11 +6,15 @@ import java.util.PriorityQueue;
 
 
 //https://www.youtube.com/watch?v=RrxpTWqj97A&list=PLDzeHZWIZsToMrLX5-7qNyS6Db9VwTSvm&index=4
+// https://www.interviewbit.com/blog/find-median-in-a-stream/
+
+/*
+    The median is the middle value of a sorted list of integers.
+    If the size of the list is even, the median is the average of the two middle elements.
+ */
 public class MedianInAStream {
 
     public static int[] findMedian(int[] arr, int n) {
-        // Write your code here.
-
         //left and right can be considered as max heap and right as min heap
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.comparingInt(e -> (int) e).reversed());
@@ -63,7 +67,7 @@ public class MedianInAStream {
 
         int[] data = new int[]{1, 7, 4, 0, 9};
 
-        System.out.println(Arrays.toString(findMedian(data, data.length)));
+        System.out.println(Arrays.toString(findMedian(data, data.length))); //[1, 4, 4, 2, 4]
     }
 
 }
