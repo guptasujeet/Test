@@ -2,15 +2,20 @@ package com.problem;
 
 import java.util.*;
 
+/*
+    Also known as Jump Iterator
+ */
 public class SkipIterator implements Iterator<Integer> {
 
     private final Iterator<Integer> it;
-    private final Map<Integer, Integer> count;
+    private final Map<Integer, Integer> skipMapCounter;
     private Integer nextEl;
 
     public SkipIterator(Iterator<Integer> it) {
         this.it = it;
-        this.count = new HashMap<>();
+        this.skipMapCounter = new HashMap<>();
+        //advance in at the time of construction
+        // so that we know in advance the nextElement
         advance();
     }
 
@@ -22,33 +27,39 @@ public class SkipIterator implements Iterator<Integer> {
     @Override
     public Integer next() {
         if (!hasNext()) throw new RuntimeException("empty");
-        //make local copy of next advance to next and return existing local copy
+        //make local copy of next element
         Integer el = nextEl;
+        //advance to find next element
         advance();
+        //return local copy
         return el;
     }
 
     public void skip(int num) {
         if (!hasNext()) throw new RuntimeException("empty");
-        //if the element to skip is the next element then advance to next element
+        //if the element is same as element to skip, then advance to find next element
         if (nextEl == num) {
             advance();
         } else {
             //else add the count
-            count.put(num, count.getOrDefault(num, 0) + 1);
+            skipMapCounter.put(num, skipMapCounter.getOrDefault(num, 0) + 1);
         }
     }
 
     private void advance() {
         //set next element to null, so that it can be used in next() method check
         nextEl = null;
+        //if next element is null and internal iterator has element
         while (nextEl == null && it.hasNext()) {
             Integer el = it.next();
-            if (!count.containsKey(el)) {
-                nextEl = el;
+            if (skipMapCounter.containsKey(el)) {
+                //reduce the counter
+                skipMapCounter.put(el, skipMapCounter.get(el) - 1);
+                //if the counter is 0 then remove the entry from map
+                skipMapCounter.remove(el, 0);
             } else {
-                count.put(el, count.get(el) - 1);
-                count.remove(el, 0);
+                //else next element is the next element of the internal iterator
+                nextEl = el;
             }
         }
     }
