@@ -14,7 +14,7 @@ public class CircularTour {
         for (int pumpNum = 0; pumpNum < petrol.length; pumpNum++) {
             balance = (petrol[pumpNum] - distance[pumpNum]) + balance;
             if (balance < 0) {
-                deficit = balance;
+                deficit = deficit + balance;
                 startPump = pumpNum + 1;
                 balance = 0;
             }
