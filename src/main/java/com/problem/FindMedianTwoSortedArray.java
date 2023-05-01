@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-public class FindMedianSortedArray {
+public class FindMedianTwoSortedArray {
 
     public double findMedianSortedArrays(final List<Integer> a, final List<Integer> b) {
         int aSize = a.size();
@@ -67,7 +67,7 @@ public class FindMedianSortedArray {
 
 
     public static void main(String[] args) {
-        FindMedianSortedArray median = new FindMedianSortedArray();
+        FindMedianTwoSortedArray median = new FindMedianTwoSortedArray();
         System.out.println(median.findMedianSortedArrays(
                 Lists.newArrayList(-50, -41, -40, -19, 5, 21, 28),
                 Lists.newArrayList(-50, -21, -10)));
