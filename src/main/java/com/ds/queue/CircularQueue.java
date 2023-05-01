@@ -35,6 +35,7 @@ public class CircularQueue {
     }
 
     private boolean isFull() {
+        //this will make sure that it will not grow beyond supplied size of n
         if (front == 0 && rear == arr.length - 1) {
             return true;
         }
