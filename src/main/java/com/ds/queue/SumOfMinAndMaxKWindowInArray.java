@@ -4,6 +4,11 @@ import java.util.TreeSet;
 
 //https://www.geeksforgeeks.org/sum-minimum-maximum-elements-subarrays-size-k/
 //https://www.youtube.com/watch?v=_gJ3to4RyeQ&t=4222s
+
+/*
+    Given an array of both positive and negative integers,
+    the task is to compute sum of minimum and maximum elements of all sub-array of size k.
+ */
 public class SumOfMinAndMaxKWindowInArray {
 
 
@@ -19,8 +24,9 @@ public class SumOfMinAndMaxKWindowInArray {
         sumMinMax = sumMinMax + (sorted.first() + sorted.last());
 
         for (int i = windowSize; i < data.length; i++) {
-            //remove the first one
+            //remove the first element
             sorted.remove(data[i - windowSize]);
+            //add current element
             sorted.add(data[i]);
             sumMinMax = sumMinMax + (sorted.first() + sorted.last());
 

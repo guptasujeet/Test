@@ -1,16 +1,21 @@
 package com.ds.queue;
 
+import java.util.Arrays;
+
 //https://www.codingninjas.com/codestudio/problems/circular-queue_1170058?
 //https://www.youtube.com/watch?v=W7uB9-TKfTg&list=PLDzeHZWIZsTrhXYYtx4z8-u8zA-DzuVsj&index=7
 public class CircularQueue {
-    // Initialize your data structure.
 
+    // Initialize data structure.
     private final int[] arr;
     private int front = 0;
     private int rear = 0;
 
     public CircularQueue(int n) {
         this.arr = new int[n + 1];
+        //+1 for a buffer space to keep checks simple
+        //and not going OutOfBounds exception
+        //it will still keep n elements in the array
     }
 
     /*
@@ -18,8 +23,6 @@ public class CircularQueue {
        and false otherwise.
     */
     public boolean enqueue(int value) {
-        // Write your code here.
-
         //check if not full
         if (isFull()) {
             return false;
@@ -29,7 +32,6 @@ public class CircularQueue {
             rear = 0;
         }
         return true;
-
     }
 
     private boolean isFull() {
@@ -54,25 +56,44 @@ public class CircularQueue {
       returns the popped element.
     */
     public int dequeue() {
-        // Write you code here.
         if (isEmpty()) {
             return -1;
         }
         if (front == arr.length && rear != 0) {
             front = 0;
         }
-        return arr[front++];
+        int val = arr[front];
+        //reset to 0
+        arr[front] = 0;
+        front++;
+        return val;
     }
 
+    @Override
+    public String toString() {
+        return "CircularQueue{" +
+                "arr=" + Arrays.toString(arr) +
+                ", front=" + front +
+                ", rear=" + rear +
+                '}';
+    }
 
     public static void main(String[] args) {
         CircularQueue circularQueue = new CircularQueue(3);
+        System.out.println(circularQueue);
         System.out.println(circularQueue.enqueue(2));
+        System.out.println(circularQueue);
         System.out.println(circularQueue.enqueue(3));
+        System.out.println(circularQueue);
         System.out.println(circularQueue.dequeue());
+        System.out.println(circularQueue);
         System.out.println(circularQueue.enqueue(4));
+        System.out.println(circularQueue);
         System.out.println(circularQueue.enqueue(6));
+        System.out.println(circularQueue);
         System.out.println(circularQueue.enqueue(7));
+        System.out.println(circularQueue);
         System.out.println(circularQueue.dequeue());
+        System.out.println(circularQueue);
     }
 }
