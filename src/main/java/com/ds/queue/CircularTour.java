@@ -1,23 +1,27 @@
 package com.ds.queue;
 
+// https://youtu.be/_gJ3to4RyeQ?t=2475
+
+// https://practice.geeksforgeeks.org/problems/circular-tour-1587115620/1
 public class CircularTour {
 
+    //shortest approach
     private int getStartingStation(int[] petrol, int[] distance) {
 
-        int start = 0;
+        int startPump = 0;
         int balance = 0;
         int deficit = 0;
-        for (int i = 0; i < petrol.length; i++) {
-            balance = (petrol[i] - distance[i]) + balance;
+        for (int pumpNum = 0; pumpNum < petrol.length; pumpNum++) {
+            balance = (petrol[pumpNum] - distance[pumpNum]) + balance;
             if (balance < 0) {
                 deficit = balance;
-                start = i + 1;
+                startPump = pumpNum + 1;
                 balance = 0;
             }
         }
 
         if (deficit + balance >= 0) {
-            return start;
+            return startPump;
         }
         return -1;
 
