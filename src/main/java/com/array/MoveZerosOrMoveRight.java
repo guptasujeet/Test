@@ -8,39 +8,29 @@ import java.util.ArrayList;
 //https://www.youtube.com/watch?v=PNJoyRaIW7U&t=194s
 public class MoveZerosOrMoveRight {
 
-
     public ArrayList<Integer> solve(ArrayList<Integer> A) {
-
-
         int size = A.size();
-
-        //start with left and right one
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         while (right < size) {
-            int data = A.get(right);
-            //for right pointer next data if all is zero continue to next
-            if (data == 0) {
-                right++;
-            } else {
-                //otherwise swap , left with right and increment both by 1
-                //think of it like moving all non zeros to left, instead of moving all zeros to right
-                int temp = A.get(left);
-                A.set(left, data);
-                A.set(right, temp);
+            Integer element = A.get(right);
+            if (element != 0) {
+                swap(A, left, right);
                 left++;
-                right++;
             }
+            right++;
         }
-
         return A;
     }
 
+    private void swap(ArrayList<Integer> list, int left, int right) {
+        Integer temp = list.get(left);
+        list.set(left, list.get(right));
+        list.set(right, temp);
+    }
 
     public void solve(char[] A) {
-
-
         int size = A.length;
-
         //start with left and right one
         int left = 0, right = 0;
         while (right < size) {
@@ -58,9 +48,7 @@ public class MoveZerosOrMoveRight {
                 right++;
             }
         }
-
     }
-
 
     //for practice
     public void solveAgain(char[] data) {
