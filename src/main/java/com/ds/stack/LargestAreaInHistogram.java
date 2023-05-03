@@ -10,24 +10,38 @@ import java.util.Stack;
 public class LargestAreaInHistogram {
 
     public int largestRectangleArea(int[] heights) {
-
+        //if length is 1 then the height of the 0th index is the max area
         if (heights.length == 1) {
             return heights[0];
         }
 
+        //fetch next and prev smaller element INDEX (not element)
         int[] nextSmaller = nextSmallerElementIndex(heights);
         int[] prevSmaller = prevSmallerElementIndex(heights);
 
         int maxArea = Integer.MIN_VALUE;
         for (int currIndex = 0; currIndex < heights.length; currIndex++) {
-            int backSideLength = prevSmaller[currIndex] == -1 ? 0 : prevSmaller[currIndex] + 1;
-            int nextSideLength = nextSmaller[currIndex] == -1 ? heights.length - 1 : nextSmaller[currIndex] - 1;
-
-            int totalLength = nextSideLength - backSideLength + 1;
+            //back side length
+            int backSideLength;
+            if (prevSmaller[currIndex] == -1) {
+                //if previous smaller is not present then 0th index is the starting point
+                backSideLength = 0;
+            } else {
+                //otherwise previous smaller index
+                backSideLength = prevSmaller[currIndex] + 1;
+            }
+            int nextSideLength;
+            if (nextSmaller[currIndex] == -1) {
+                //if next smaller is not present then full length of array is the length
+                nextSideLength = heights.length - 1; //-1 for index thing
+            } else {
+                //otherwise next smaller index
+                nextSideLength = nextSmaller[currIndex] - 1;
+            }
+            int totalLength = nextSideLength - backSideLength + 1; //+1 for current one
             int area = totalLength * heights[currIndex];
             maxArea = Math.max(maxArea, area);
         }
-
         return maxArea;
     }
 
