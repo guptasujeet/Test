@@ -29,10 +29,13 @@ import java.util.Map;
 
 //use Moor's Majority element algo
 //https://www.youtube.com/watch?v=n5QY3x_GNDg
+// https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm#
 public class NBy3MajorityNumber {
     // DO NOT MODIFY THE LIST
     public int repeatedNumber(final List<Integer> a) {
-        Map<Integer, Integer> counter = new HashMap<>(2);
+        int n = 3;
+        int checkSize = n - 1;
+        Map<Integer, Integer> counter = new HashMap<>(checkSize);
         int size = a.size();
         for (int num : a) {
             if (counter.containsKey(num)) {
@@ -40,13 +43,14 @@ public class NBy3MajorityNumber {
             } else {
                 //N/3 (3-1) i.e 2 elements
                 //if the size is 2 then
-                if (counter.size() == 2) {
+                //and possibly new element came which is more than checkSize
+                if (counter.size() == checkSize) {
                     Iterator<Map.Entry<Integer, Integer>> iterator = counter.entrySet().iterator();
                     while (iterator.hasNext()) {
                         Map.Entry<Integer, Integer> entry = iterator.next();
                         Integer key = entry.getKey();
                         Integer value = entry.getValue();
-                        //if this is the only element count i.e. 1 remove it
+                        //remove element count which is 1 i.e. only 1 occurrence so far
                         if (value == 1) {
                             iterator.remove();
                         } else {

@@ -6,9 +6,7 @@ import java.util.Arrays;
 //https://www.codingninjas.com/codestudio/problems/number-of-ways_3755252?
 public class CombinationSumIV {
 
-
     public static int findWays2(int[] nums, int tar) {
-        // Write your code here..
         int[] memory = new int[tar + 1];
         Arrays.fill(memory, -1);
         return countWays(nums, tar, memory);
@@ -41,14 +39,12 @@ public class CombinationSumIV {
     }
 
     public static int findWays(int[] nums, int tar) {
-        // Write your code here..
         return countWaysTabulation(nums, tar);
     }
 
     private static int countWaysTabulation(int[] nums, int finalTarget) {
         int[] memory = new int[finalTarget + 1];
         memory[0] = 0;
-
 
         for (int currentTarget = 1; currentTarget <= finalTarget; currentTarget++) {
             int count = 0;
@@ -71,11 +67,8 @@ public class CombinationSumIV {
 
 
     public static void main(String[] args) {
-
-
         System.out.println(findWays2(new int[]{1, 2, 5}, 5));
         System.out.println(findWays(new int[]{1, 2, 5}, 5));
-
     }
 
 

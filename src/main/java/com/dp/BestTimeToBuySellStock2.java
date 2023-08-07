@@ -25,15 +25,16 @@ public class BestTimeToBuySellStock2 {
             return memory[currIndex][buyAllowed];
         }
 
-        int ignore = calculateMaxProfit(prices, currIndex + 1, buyAllowed, memory);
+        //buy on that price or sell on that price or ignore that price
+        int shouldIgnore = calculateMaxProfit(prices, currIndex + 1, buyAllowed, memory);
 
         int profit;
         if (buyAllowed == 1) {
-            int buy = -prices[currIndex] + calculateMaxProfit(prices, currIndex + 1, 0, memory);
-            profit = Math.max(buy, ignore);
+            int shouldBuy = -prices[currIndex] + calculateMaxProfit(prices, currIndex + 1, 0, memory);
+            profit = Math.max(shouldBuy, shouldIgnore);
         } else {
-            int sell = prices[currIndex] + calculateMaxProfit(prices, currIndex + 1, 1, memory);
-            profit = Math.max(sell, ignore);
+            int shouldSell = prices[currIndex] + calculateMaxProfit(prices, currIndex + 1, 1, memory);
+            profit = Math.max(shouldSell, shouldIgnore);
         }
 
         memory[currIndex][buyAllowed] = profit;

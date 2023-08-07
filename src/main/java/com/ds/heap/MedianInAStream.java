@@ -27,9 +27,7 @@ public class MedianInAStream {
             median = calcMedian(minHeap, maxHeap, element, median);
             ans[i] = median;
         }
-
         return ans;
-
     }
 
 
