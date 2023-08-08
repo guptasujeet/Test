@@ -3,9 +3,7 @@ package com.problem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Stack;
+import java.util.*;
 
 public class TimeOverlapMergeInterval {
 
@@ -50,7 +48,6 @@ public class TimeOverlapMergeInterval {
 
 
     public int[][] merge(int[][] intervals) {
-
         //first sort the intervals
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
@@ -69,8 +66,29 @@ public class TimeOverlapMergeInterval {
                 stack.push(interval);
             }
         }
-
         return stack.toArray(new int[stack.size()][2]);
+    }
+
+    public int[][] mergeWithoutStack(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
+        List<int[]> answer = new ArrayList<>();
+        int headStart = intervals[0][0];
+        int headEnd = intervals[0][1];
+
+        for (int[] currentInterval : intervals) {
+            int currentStart = currentInterval[0];
+            int currentEnd = currentInterval[1];
+            if (currentStart <= headEnd) {
+                //taking whatever interval is maximum
+                headEnd = Math.max(headEnd, currentEnd);
+            } else {
+                answer.add(new int[]{headStart, headEnd});
+                headStart = currentStart;
+                headEnd = currentEnd;
+            }
+        }
+        answer.add(new int[]{headStart, headEnd});
+        return answer.toArray(new int[answer.size()][2]);
     }
 
     public static void main(String[] args) {
@@ -90,6 +108,21 @@ public class TimeOverlapMergeInterval {
         int[][] result1 = mergeInterval.merge(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}});
         //[[1,6],[8,10],[15,18]]
         for (int[] ints : result1) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println("-----------");
+
+        int[][] result2 = mergeInterval.mergeWithoutStack(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}});
+        //[[1,6],[8,10],[15,18]]
+        for (int[] ints : result2) {
+            System.out.println(Arrays.toString(ints));
+        }
+
+        System.out.println("-----------");
+
+        int[][] result3 = mergeInterval.mergeWithoutStack(new int[][]{{1, 4}, {1, 3}});
+        //[[1,4]]
+        for (int[] ints : result3) {
             System.out.println(Arrays.toString(ints));
         }
     }
