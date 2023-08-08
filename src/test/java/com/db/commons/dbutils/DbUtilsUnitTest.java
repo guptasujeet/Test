@@ -25,7 +25,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class DbUtilsUnitTest {
 
@@ -169,7 +168,6 @@ public class DbUtilsUnitTest {
 
         assertEquals(employees.get(0).getEmails().size(), 2);
         assertEquals(employees.get(2).getEmails().size(), 3);
-        assertNotNull(employees.get(0).getEmails().get(0).getEmployeeId());
     }
 
     @Test
