@@ -13,6 +13,7 @@ public class CoinChange2 {
     }
 
     private int solve(int target, int[] coins, int coinIndex, Map<Integer, Map<Integer, Integer>> memory) {
+        //if the target is reached to 0 that means we are able to make it one way
         if (target == 0) {
             return 1;
         }
@@ -31,6 +32,7 @@ public class CoinChange2 {
         //if we do not start from coinIndex then it will be same as combination sum with all permutation
         for (int i = coinIndex; i < coins.length; i++) {
             if (target >= coins[i]) {
+                //not adding +1 in i in recursion b/c we need to check if the same coin can make sum as well or not
                 ans += solve(target - coins[i], coins, i, memory);
             }
         }
@@ -47,6 +49,35 @@ public class CoinChange2 {
         CoinChange2 coinChange2 = new CoinChange2();
 
         System.out.println(coinChange2.change(5, new int[]{1, 2, 5})); // 4
+        System.out.println(coinChange2.changePractice(5, new int[]{1, 2, 5})); // 4
     }
 
+    public int changePractice(int targetAmount, int[] coin) {
+        Map<Integer, Integer> memory = new HashMap<>();
+        return changePracticeSolve(targetAmount, coin, 0, memory);
+    }
+
+    private int changePracticeSolve(int targetAmount, int[] coins, int coinIndex, Map<Integer, Integer> memory) {
+        if (targetAmount == 0) {
+            return 1;
+        }
+
+        if (coinIndex >= coins.length) {
+            return 0;
+        }
+
+        if (targetAmount < 0) {
+            return 0;
+        }
+
+        int ways = 0;
+        for (int currentCoinIndex = coinIndex; currentCoinIndex < coins.length; currentCoinIndex++) {
+            if (targetAmount >= coins[currentCoinIndex]) {
+                ways += changePracticeSolve(targetAmount - coins[currentCoinIndex], coins, currentCoinIndex, memory);
+            }
+        }
+        return ways;
+    }
 }
+
+

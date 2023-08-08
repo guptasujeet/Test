@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class BestTimeToBuySellStock4 {
 
 
+    //k number of maximum tx allowed
     public int maxProfit(int k, int[] prices) {
         int[][][] memory = new int[prices.length][2][2 * k];
 
