@@ -22,7 +22,7 @@ public class BoundaryTraversal {
         traverseLeafNode(node.right, answer);
 
         //traverse right except root node and leaf node
-        //notice it is node.right not node which is passed from here
+        //notice it is node.right and NOT node which is passed from here
         traverseRightNode(node.right, answer);
         return answer;
     }
@@ -61,9 +61,7 @@ public class BoundaryTraversal {
         } else {
             traverseRightNode(node.left, answer);
         }
-
         answer.add(node.data);
-
     }
 
     public static void main(String[] args) {
@@ -71,10 +69,9 @@ public class BoundaryTraversal {
 
         System.out.println(tree.getBoundaryTraversal());
 
-
         BinaryTree tree2 = getSampleBinaryTree();
         System.out.println(tree2.getBoundaryTraversal());
-        System.out.println(tree2.toString());
+        System.out.println(tree2);
 
     }
 

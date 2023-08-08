@@ -47,11 +47,8 @@ public class VerticalOrderTraversal {
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree(TreeSampleData.createSampleData3());
-
         System.out.println(tree.getVerticalTraversal());
-
-
-        System.out.println(tree.toString());
+        System.out.println(tree);
     }
 
 

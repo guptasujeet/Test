@@ -23,7 +23,7 @@ public class MorrisInOrderTraversal {
                 current = current.right;
             } else {
                 //if left of current is not null , find the predecessor
-                //i.e first got to left and then all the way to right
+                //ie first got to left and then all the way to right
                 TreeNode predecessor = current.left;
                 while (predecessor.right != null && predecessor.right != current) {
                     predecessor = predecessor.right;

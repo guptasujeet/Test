@@ -14,13 +14,18 @@ public class NextSmallerElement {
     static ArrayList<Integer> nextSmallerElement(ArrayList<Integer> arr, int n) {
         ArrayList<Integer> ansList = new ArrayList<>(n);
         LinkedList<Integer> stack = new LinkedList<>();
+        //start with -1 for the last element, as there is no element lesser than that
         stack.push(-1);
+        //start from reverse side for the next min element
         for (int i = arr.size() - 1; i >= 0; i--) {
             Integer current = arr.get(i);
+            //if item in stack is bigger than current number remove that number then
             while (stack.peek() >= current) {
                 stack.pop();
             }
+            //take top element from stack and that is the answer
             int ans = stack.peek();
+            //put the current element into stack
             stack.push(current);
             ansList.add(0, ans);
         }

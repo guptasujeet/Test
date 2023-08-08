@@ -17,23 +17,22 @@ public class SumOfMinAndMaxKWindowInArray {
         TreeSet<Integer> sorted = new TreeSet<>();
 
         int sumMinMax = 0;
+        //add sorted data by window size to a set
         for (int i = 0; i < windowSize; i++) {
             sorted.add(data[i]);
         }
 
         sumMinMax = sumMinMax + (sorted.first() + sorted.last());
 
+        //now start form the windowSize
         for (int i = windowSize; i < data.length; i++) {
-            //remove the first element
+            //remove the first element of the data NOT the first element of sorted data
             sorted.remove(data[i - windowSize]);
             //add current element
             sorted.add(data[i]);
             sumMinMax = sumMinMax + (sorted.first() + sorted.last());
-
         }
-
         return sumMinMax;
-
     }
 
 

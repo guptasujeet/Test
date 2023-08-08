@@ -14,15 +14,21 @@ public class CircularTour {
         for (int pumpNum = 0; pumpNum < petrol.length; pumpNum++) {
             balance = (petrol[pumpNum] - distance[pumpNum]) + balance;
             if (balance < 0) {
+                //if balance is less than 0, that means we cant start from this station
+                //add to deficit and set startPump as nextPump from current pumpNum
                 deficit = deficit + balance;
                 startPump = pumpNum + 1;
+
+                //reset balance as 0, as when starting from nextPum balance will be 0
                 balance = 0;
             }
         }
 
+        //if the deficit and balance add up to positive number, then we can make a circular tour
         if (deficit + balance >= 0) {
             return startPump;
         }
+        //else we can't
         return -1;
 
     }
