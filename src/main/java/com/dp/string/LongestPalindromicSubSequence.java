@@ -1,12 +1,17 @@
-package com.dp;
+package com.dp.string;
 
 import java.util.Arrays;
 
 //https://leetcode.com/problems/longest-palindromic-subsequence/
+// https://www.youtube.com/watch?v=U095bJJtW3w&t=352s
 //not this is subsequnce problem not SUB STRING
 public class LongestPalindromicSubSequence {
 
 
+    //this is just extention of LongestCommonSubSequence
+    //where same string can be reversed and then longest common subsequence of both will be taken
+
+    //or we can instead start pointer for 2nd string from back side.
     public int longestPalindromeSubseq(String text1) {
         int[][] memory = new int[text1.length()][text1.length()];
         for (int[] ints : memory) {
