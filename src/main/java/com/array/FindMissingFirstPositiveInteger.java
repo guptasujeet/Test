@@ -10,7 +10,7 @@ public class FindMissingFirstPositiveInteger {
 
     public int firstMissingPositive(ArrayList<Integer> arr) {
         int size = arr.size();
-        if (arr.size() == 0) {
+        if (arr.isEmpty()) {
             return 1;
         }
 

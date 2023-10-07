@@ -19,7 +19,7 @@ public class MergeKSortedLinkedList {
         Node root = null;
         Node tail = null;
 
-        while (minHeap.size() > 0) {
+        while (!minHeap.isEmpty()) {
             Node newNode = minHeap.poll();
             if (root == null) {
                 root = tail = newNode;

@@ -47,7 +47,7 @@ public class BoggleGame {
                                      Map<Character, List<Point>> charPosition, Point point) {
         int totalRows = matrix.length;
         int totalColumns = matrix[0].length;
-        if (word.length() == 0) {
+        if (word.isEmpty()) {
             return true;
         }
 
