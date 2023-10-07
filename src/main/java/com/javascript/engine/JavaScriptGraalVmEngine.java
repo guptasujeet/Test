@@ -25,17 +25,21 @@ public class JavaScriptGraalVmEngine {
             Value script2Result = script2.execute(1, 2);
             System.out.println("Script2 Result -> " + script2Result);
 
+            Student existingStudent = new Student("Missing", "Missing", 0, "0302CS071084");
 
             String complexCode = """
                     (
                         function getStudent(fn, ln, mathNum, engNum, scienceNum) {
                             var total = mathNum + engNum + scienceNum;
-                            var student = new (Java.type('com.javascript.engine.Student'))(fn, ln, total);
+                            var StudentClass = Java.type('com.javascript.engine.Student');
+                            var existingRollNum = existingStudent.getRollNum();
+                            var student = new StudentClass(fn, ln, total, existingRollNum);
                             return student;
                         }
                     )
                     """;
-
+            //existingStudent will be available from java to javaScript
+            context.getBindings("js").putMember("existingStudent", existingStudent);
             Value complexCodeFunction = context.eval("js", complexCode);
             Value complexCodeResult = complexCodeFunction.execute("Sujeet", "Gupta", 5, 10, 15);
             System.out.println(complexCodeResult);

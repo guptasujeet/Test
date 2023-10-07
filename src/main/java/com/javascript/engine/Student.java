@@ -4,16 +4,17 @@ public class Student {
 
     private String firstName;
     private String lastName;
-
     private int totalMarks;
+    private String rollNum;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, int totalMarks) {
+    public Student(String firstName, String lastName, int totalMarks, String rollNum) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.totalMarks = totalMarks;
+        this.rollNum = rollNum;
     }
 
     public String getFirstName() {
@@ -40,12 +41,21 @@ public class Student {
         this.totalMarks = totalMarks;
     }
 
+    public String getRollNum() {
+        return rollNum;
+    }
+
+    public void setRollNum(String rollNum) {
+        this.rollNum = rollNum;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", totalMarks=" + totalMarks +
+                ", rollNum='" + rollNum + '\'' +
                 '}';
     }
 }
